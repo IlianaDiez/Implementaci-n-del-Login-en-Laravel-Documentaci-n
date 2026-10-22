@@ -1,191 +1,197 @@
-=================================================================================
-                       UNIVERSIDAD TECNOLÓGICA DE PANAMÁ
-            FACULTAD DE INGENIERÍA DE SISTEMAS COMPUTACIONALES
-                       DEPARTAMENTO DE COMPUTACIÓN Y SOFTWARE
-                                DESARROLLO WEB
+# 🚀 Laboratorio: Creación e Instalación de Laravel e Implementación del Login
 
-               LABORATORIO DEL 9 DE OCTUBRE: CREACIÓN E INSTALACIÓN DE LARAVEL
-                             IMPLEMENTACIÓN DEL LOGIN EN LARAVEL
+**Universidad Tecnológica de Panamá**
+Facultad de Ingeniería de Sistemas Computacionales
+Departamento de Computación y Software · Desarrollo Web
 
+| | |
+|---|---|
+| **Estudiante** | Iliana Navarro |
+| **Grupo** | 1S3122 |
+| **Instructor del laboratorio** | Ing. Irina Fong |
+| **Fecha de ejecución** | 9 de octubre de 2026 |
+| **Fecha de entrega** | 16 de octubre de 2026 |
 
-   Estudiante: Iliana Navarro
-   Grupo: 1S3122
-   Instructor del Laboratorio: Ing. Irina Fong
-   Fecha de Ejecución: 9 de octubre de 2026
-   Fecha de Entrega: 16 de octubre de 2026
+---
 
-=================================================================================
-🚀 Documentación y Desarrollo de Laboratorio: Creación e Instalación de Laravel y Módulo de Autenticación
+## 📑 Tabla de contenido
 
-📌 1. Introducción y Objetivos de la Asignación
+1. [Introducción y objetivos](#-1-introducción-y-objetivos)
+2. [Requisitos previos y entorno de desarrollo](#️-2-requisitos-previos-y-entorno-de-desarrollo)
+3. [Desarrollo detallado del proceso](#-3-desarrollo-detallado-del-proceso-y-comandos)
+4. [Dificultades técnicas y soluciones](#-4-dificultades-técnicas-encontradas-y-soluciones-aplicadas)
+5. [Referencias bibliográficas](#-5-referencias-bibliográficas)
 
-El presente documento recopila y detalla el proceso técnico implementado para la creación, configuración y despliegue de una aplicación web basada en el framework Laravel. El propósito fundamental de esta asignación es comprender a fondo la arquitectura Modelo-Vista-Controlador (MVC), el manejo de dependencias mediante gestores modernos, la resolución de conflictos habituales en entornos locales con bases de datos relacionales, y la integración rápida de un sistema robusto de autenticación de usuarios (Login y Registro) utilizando Bootstrap como framework visual.
+---
 
-🛠️ 2. Requisitos Previos y Entorno de Desarrollo
+## 📌 1. Introducción y objetivos
 
-Para garantizar la correcta ejecución del proyecto, se configuró un ecosistema de desarrollo local integrado por las siguientes herramientas tecnológicas:
+Este documento recopila y detalla el proceso técnico para la creación, configuración y despliegue de una aplicación web basada en el framework **Laravel**.
 
-Componente Tecnológico
+El propósito de la asignación es:
 
-Versión Instalada
+- Comprender la arquitectura **Modelo-Vista-Controlador (MVC)**.
+- Manejar dependencias mediante gestores de paquetes modernos.
+- Resolver conflictos habituales en entornos locales con bases de datos relacionales.
+- Integrar rápidamente un sistema de autenticación de usuarios (**Login y Registro**) usando **Bootstrap** como framework visual.
 
-Descripción y Justificación Académica
+---
 
-Sistema Operativo
+## 🛠️ 2. Requisitos previos y entorno de desarrollo
 
-Windows (PowerShell / CMD)
+Para la correcta ejecución del proyecto se configuró un entorno local con las siguientes herramientas:
 
-Entorno de comandos nativo para la administración de procesos y ejecución de scripts del sistema.
+| Componente | Versión instalada | Descripción |
+|---|---|---|
+| **Sistema operativo** | Windows (PowerShell / CMD) | Entorno de comandos nativo para administrar procesos y ejecutar scripts. |
+| **PHP** | 8.5.9 (NTS x64) | Intérprete del lado del servidor, ubicado en `C:\php\php.exe`. |
+| **Composer** | 2.10.3 | Administrador de paquetes de PHP; descarga e integra las librerías del framework. |
+| **Node.js y NPM** | Node v24.20.0 / NPM 11.19.0 | Herramientas de frontend y compilación de recursos estáticos con Vite. |
+| **WampServer** | Apache 2.4 / MySQL 8.0 | Entorno local con servidor web Apache y gestor de base de datos MySQL. |
+| **Visual Studio Code** | Última versión | IDE para modificar y estructurar el código fuente. |
 
-PHP
+---
 
-Versión 8.5.9 (NTS x64)
+## 💻 3. Desarrollo detallado del proceso y comandos
 
-Intérprete del lenguaje del lado del servidor (backend) ubicado en C:\php\php.exe.
+### Paso 3.1: Validación del entorno de consola
 
-Composer
+Antes de iniciar, se comprueba que PHP, Composer y Node respondan correctamente en la terminal.
 
-Versión 2.10.3
-
-Administrador de paquetes oficial de PHP, encargado de descargar e integrar las librerías del framework.
-
-Node.js & NPM
-
-Node v24.20.0 / NPM 11.19.0
-
-Herramientas orientadas al desarrollo frontend y compilación de recursos estáticos mediante Vite.
-
-WampServer
-
-Apache 2.4 / MySQL 8.0
-
-Entorno local integrado que provee el servidor web Apache y el gestor de base de datos relacional MySQL.
-
-Visual Studio Code
-
-Última versión
-
-Entorno de desarrollo integrado (IDE) para la modificación y estructuración del código fuente.
-
-💻 3. Desarrollo Detallado del Proceso y Comandos
-
-A continuación se explica paso a paso la lógica detrás de cada comando ejecutado en la consola durante el laboratorio:
-
-Paso 3.1: Validación del Entorno de Consola
-
-Antes de iniciar cualquier estructura, es obligatorio comprobar que las rutas globales de PHP y Composer respondan de manera correcta en la terminal.
-
-Comandos:
-
+```bash
 pwd
 php -v
 composer -V
 node -v
 npm -v
+```
 
+> **Explicación:** `pwd` confirma que se trabaja dentro de la ruta del servidor local (`C:\wamp64\www`). Las validaciones de versión (`-v` / `-V`) aseguran que no haya incompatibilidades entre Laravel y el PHP instalado.
 
-Explicación detallada: El comando pwd nos permite certificar que estamos trabajando dentro de la ruta del servidor local (C:\wamp64\www). Las validaciones de versión (-v / -V) aseguran que no existan conflictos de incompatibilidad entre las librerías de Laravel y el intérprete de PHP instalado en el equipo.
+📸 **Captura de pantalla:**
 
-🖼️ Captura de Pantalla:
+![Validación del entorno](./capturas/paso-3-1.png)
 
-Paso 3.2: Instalación del Framework y Creación del Proyecto
+---
 
-Para automatizar la descarga de la estructura limpia de Laravel, se utiliza el instalador global gestionado a través de Composer.
+### Paso 3.2: Instalación del framework y creación del proyecto
 
-Comandos:
-
+```bash
 cd C:\wamp64\www
 composer global require laravel/installer
 laravel new LabLogin
+```
 
+> **Explicación:** Nos posicionamos en la carpeta pública de WampServer. `composer global require` instala el instalador de Laravel de forma global, lo que permite ejecutar `laravel new LabLogin`, que genera el árbol de directorios MVC (`app`, `database`, `routes`, `resources`, etc.). Durante el asistente se seleccionó **Blade** como motor de plantillas.
 
-Explicación detallada: Nos posicionamos en la carpeta pública del servidor local WampServer. El comando composer global require instala el motor global de Laravel en la máquina, permitiendo ejecutar el comando laravel new LabLogin, el cual genera de manera automática todo el árbol de directorios MVC (app, database, routes, resources, etc.). Durante este asistente, se seleccionó Blade como el motor de plantillas para las vistas.
+📸 **Captura de pantalla:**
 
-🖼️ Captura de Pantalla:
+![Creación del proyecto](./capturas/paso-3-2.png)
 
-Paso 3.3: Implementación del Módulo de Autenticación (laravel/ui)
+---
 
-Para evitar codificar desde cero los formularios de acceso y registro, Laravel provee paquetes oficiales de scaffolding.
+### Paso 3.3: Módulo de autenticación (`laravel/ui`)
 
-Comandos:
-
+```bash
 cd LabLogin
 composer require laravel/ui
 php artisan ui bootstrap --auth
+```
 
+> **Explicación:** El paquete `laravel/ui` gestiona la autenticación clásica. El comando `ui bootstrap --auth` agrega las rutas de autenticación en `routes/web.php`, genera los controladores de acceso y crea las vistas de **Login** y **Registro** con Bootstrap.
 
-Explicación detallada: Ingresamos al directorio del proyecto creado. El paquete laravel/ui es requerido para gestionar los componentes de autenticación clásica. Posteriormente, el comando de Artisan ui bootstrap --auth inyecta automáticamente las rutas de autenticación en routes/web.php, genera el controlador de acceso, y crea las vistas de Login y Registro estilizadas con componentes responsivos de Bootstrap.
+📸 **Captura de pantalla:**
 
-🖼️ Captura de Pantalla:
+![Módulo de autenticación](./capturas/paso-3-3.png)
 
-Paso 3.4: Gestión de Dependencias Frontend y Compilación (Vite)
+---
 
-Los frameworks modernos separan la lógica del backend de los recursos visuales del frontend mediante herramientas de empaquetado rápido.
+### Paso 3.4: Dependencias frontend y compilación (Vite)
 
-Comandos:
-
+```bash
 npm install
 npm run dev
+```
 
+> **Explicación:** `npm install` lee `package.json` y descarga los módulos de Node necesarios. `npm run dev` inicia el servidor de desarrollo de Vite, que compila CSS y JavaScript en tiempo real.
+>
+> 💡 **Nota técnica:** si el puerto por defecto `5173` está ocupado, Vite reasigna automáticamente el servicio al `5174` sin afectar la funcionalidad.
 
-Explicación detallada: npm install lee el archivo package.json para descargar todos los módulos de Node necesarios para el diseño visual. Luego, npm run dev inicializa el servidor de desarrollo basado en Vite, el cual compila en tiempo real los archivos CSS y JavaScript. (Nota técnica: Si el puerto por defecto 5173 se encuentra ocupado por otro proceso, Vite reasigna automáticamente el servicio al puerto 5174 sin alterar la funcionalidad).
+📸 **Captura de pantalla:**
 
-🖼️ Captura de Pantalla:
+![Compilación con Vite](./capturas/paso-3-4.png)
 
-Paso 3.5: Configuración de Base de Datos, Limpieza y Migraciones
+---
 
-Laravel maneja la estructura de la base de datos a través de clases de migración orientadas a objetos, garantizando portabilidad.
+### Paso 3.5: Configuración de base de datos, limpieza y migraciones
 
-Comandos:
-
+```bash
 php artisan config:clear
 php artisan config:cache
 php artisan migrate:fresh
+```
 
+> **Explicación:** Primero se limpia y regenera la caché de configuración para que Laravel reconozca los parámetros del archivo `.env` (conexión a la base de datos `lablogin` en MySQL). Luego `migrate:fresh` elimina las tablas previas y ejecuta las migraciones desde cero, creando las tablas esenciales: usuarios, restablecimiento de contraseñas, caché y trabajos.
 
-Explicación detallada: Primero limpiamos y actualizamos la caché de configuración (config:clear / config:cache) para forzar a Laravel a reconocer los parámetros definidos en el archivo .env (conexión a la base de datos lablogin en MySQL). Después, migrate:fresh elimina cualquier tabla previa y ejecuta las migraciones limpias para construir las tablas esenciales del sistema (usuarios, restablecimiento de contraseñas, caché y trabajos).
+📸 **Captura de pantalla:**
 
-🖼️ Captura de Pantalla:
+![Migraciones](./capturas/paso-3-5.png)
 
-Paso 3.6: Despliegue Local del Servidor de Aplicaciones
+---
 
-Para poner en marcha el sistema y verificar su correcta operatividad en el navegador web:
+### Paso 3.6: Despliegue local del servidor
 
-Comando:
-
+```bash
 php artisan serve
+```
 
+> **Explicación:** Inicia el servidor web embebido de PHP y despliega la aplicación en [http://127.0.0.1:8000](http://127.0.0.1:8000), donde se pueden evaluar las rutas y el diseño.
 
-Explicación detallada: Este comando inicia el servidor web embebido de PHP, desplegando la aplicación en la dirección local por defecto http://127.0.0.1:8000, permitiendo evaluar el funcionamiento de las rutas y el diseño visual.
+📸 **Captura de pantalla:**
 
-🖼️ Captura de Pantalla:
+![Servidor en ejecución](./capturas/paso-3-6.png)
 
-🚨 4. Dificultades Técnicas Encontradas y Soluciones Aplicadas
+---
 
-Durante el desarrollo de la práctica se presentaron diversos retos técnicos que fueron solventados de la siguiente manera:
+## 🚨 4. Dificultades técnicas encontradas y soluciones aplicadas
 
-Conflicto de longitud de índices en MySQL (SQLSTATE[42000]: Specified key was too long):
+### 1️⃣ Conflicto de longitud de índices en MySQL
 
-Causa: Las versiones recientes de MySQL imponen un límite estricto en los bytes de las llaves únicas, generando errores al intentar migrar las tablas predeterminadas de Laravel.
+```text
+SQLSTATE[42000]: Specified key was too long
+```
 
-Solución: Se modificó el archivo app/Providers/AppServiceProvider.php importando la fachada Schema y agregando la instrucción global Schema::defaultStringLength(191); dentro del método boot().
+- **Causa:** Las versiones recientes de MySQL imponen un límite estricto en los bytes de las llaves únicas, lo que genera errores al migrar las tablas predeterminadas de Laravel.
+- **Solución:** En `app/Providers/AppServiceProvider.php` se importó la fachada `Schema` y se agregó la siguiente instrucción dentro del método `boot()`:
 
-Incompatibilidad de sintaxis en PowerShell al concatenar comandos (&&):
+```php
+use Illuminate\Support\Facades\Schema;
 
-Causa: La terminal de PowerShell utilizada por defecto en Windows no soporta el operador lógico && para encadenar comandos de Node de la misma manera que Bash.
+public function boot(): void
+{
+    Schema::defaultStringLength(191);
+}
+```
 
-Solución: Se ejecutaron los comandos de forma secuencial e independiente (npm install y posteriormente npm run dev).
+### 2️⃣ Incompatibilidad de sintaxis en PowerShell al concatenar comandos (`&&`)
 
-Integración del Footer Institucional:
+- **Causa:** PowerShell, la terminal por defecto en Windows, no soporta el operador `&&` para encadenar comandos de la misma manera que Bash.
+- **Solución:** Se ejecutaron los comandos de forma secuencial e independiente:
 
-Causa: Personalizar la vista principal de bienvenida (resources/views/welcome.blade.php) manteniendo la coherencia estética del diseño original.
+```bash
+npm install
+npm run dev
+```
 
-Solución: Se añadió un bloque semántico <footer> al final de la estructura HTML con los datos oficiales de la universidad, nombre de la estudiante y del instructor.
+### 3️⃣ Integración del footer institucional
 
-📚 5. Referencias Bibliográficas
+- **Causa:** Se necesitaba personalizar la vista de bienvenida (`resources/views/welcome.blade.php`) manteniendo la coherencia estética del diseño original.
+- **Solución:** Se añadió un bloque semántico `<footer>` al final de la estructura HTML con los datos oficiales de la universidad y los nombres de la estudiante y del instructor.
 
-Laravel Documentation. Authentication & Scaffolding Guide. Disponible en: https://laravel.com/docs
+---
 
-PHP Manual. The Model-View-Controller (MVC) Architectural Pattern. Disponible en: https://www.php.net
+## 📚 5. Referencias bibliográficas
 
-Bootstrap Framework. Documentation v5.3 - Components and Utilities. Disponible en: https://getbootstrap.com
+- Laravel Documentation. *Authentication & Scaffolding Guide*. <https://laravel.com/docs>
+- PHP Manual. *The Model-View-Controller (MVC) Architectural Pattern*. <https://www.php.net>
+- Bootstrap Framework. *Documentation v5.3 – Components and Utilities*. <https://getbootstrap.com>
