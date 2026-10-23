@@ -70,7 +70,11 @@ npm -v
 
 📸 **Captura de pantalla:**
 
-![Validación del entorno](./capturas/paso-3-1.png)
+<img width="768" height="273" alt="Captura de pantalla 2026-10-21 082116" src="https://github.com/user-attachments/assets/2a602781-f662-4ee2-b00d-ef4fa5fbb0be" />
+<img width="1426" height="591" alt="Captura de pantalla 2026-10-21 082409" src="https://github.com/user-attachments/assets/ec0001b2-9590-4346-b898-47649fd996ff" />
+<img width="768" height="171" alt="Captura de pantalla 2026-10-21 082133" src="https://github.com/user-attachments/assets/0b0ea960-49f4-4426-afa0-b71b264e387e" />
+
+
 
 ---
 
@@ -86,7 +90,11 @@ laravel new LabLogin
 
 📸 **Captura de pantalla:**
 
-![Creación del proyecto](./capturas/paso-3-2.png)
+<img width="1047" height="1000" alt="Captura de pantalla 2026-10-21 083205" src="https://github.com/user-attachments/assets/be7f90f0-8978-4b98-9b6e-5219294b2c2d" />
+
+<img width="723" height="1008" alt="Captura de pantalla 2026-10-21 084100" src="https://github.com/user-attachments/assets/7cd795ab-6d4b-4479-b523-a056778cdcc5" />
+<img width="772" height="1007" alt="Captura de pantalla 2026-10-21 084532" src="https://github.com/user-attachments/assets/bbe12e24-fba3-47ba-a30b-d074bb32de8a" />
+
 
 ---
 
@@ -100,9 +108,6 @@ php artisan ui bootstrap --auth
 
 > **Explicación:** El paquete `laravel/ui` gestiona la autenticación clásica. El comando `ui bootstrap --auth` agrega las rutas de autenticación en `routes/web.php`, genera los controladores de acceso y crea las vistas de **Login** y **Registro** con Bootstrap.
 
-📸 **Captura de pantalla:**
-
-![Módulo de autenticación](./capturas/paso-3-3.png)
 
 ---
 
@@ -117,10 +122,6 @@ npm run dev
 >
 > 💡 **Nota técnica:** si el puerto por defecto `5173` está ocupado, Vite reasigna automáticamente el servicio al `5174` sin afectar la funcionalidad.
 
-📸 **Captura de pantalla:**
-
-![Compilación con Vite](./capturas/paso-3-4.png)
-
 ---
 
 ### Paso 3.5: Configuración de base de datos, limpieza y migraciones
@@ -133,9 +134,6 @@ php artisan migrate:fresh
 
 > **Explicación:** Primero se limpia y regenera la caché de configuración para que Laravel reconozca los parámetros del archivo `.env` (conexión a la base de datos `lablogin` en MySQL). Luego `migrate:fresh` elimina las tablas previas y ejecuta las migraciones desde cero, creando las tablas esenciales: usuarios, restablecimiento de contraseñas, caché y trabajos.
 
-📸 **Captura de pantalla:**
-
-![Migraciones](./capturas/paso-3-5.png)
 
 ---
 
@@ -149,7 +147,8 @@ php artisan serve
 
 📸 **Captura de pantalla:**
 
-![Servidor en ejecución](./capturas/paso-3-6.png)
+<img width="1046" height="1003" alt="Captura de pantalla 2026-10-22 144419" src="https://github.com/user-attachments/assets/72db777e-c76f-4afd-880c-70c0d72765ee" />
+
 
 ---
 
